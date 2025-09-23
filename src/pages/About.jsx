@@ -1,4 +1,7 @@
+// src/pages/About.jsx
 import React from 'react';
+import myPhoto from '../assets/myPhoto.jpg'; // Changed variable to 'myPhoto' to match the src
+import '../styles/About.css';
 
 const About = () => {
   return (
@@ -15,7 +18,11 @@ const About = () => {
             </p>
           </div>
           <div className="md:w-1/3">
-            <img src="https://placehold.co/400x400/1e293b/d1d5db?text=Your+Photo" alt="Tharushi Kodithuwakku" className="rounded-full shadow-lg border-4 border-green-600" />
+            <img 
+              src={myPhoto} // Using the correct variable name
+              alt="Tharushi Kodithuwakku" 
+            className="rounded-full shadow-lg border-4 border-green-600 w-48 h-48 md:w-64 md:h-64 object-cover photo-glow photo-zoom" 
+            />
           </div>
         </div>
       </div>

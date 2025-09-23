@@ -1,0 +1,30 @@
+.photo-glow {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.photo-zoom {
+  transition: transform 0.3s ease-in-out;
+}
+
+.photo-zoom:hover {
+  transform: scale(1.05); /* Zooms the photo by 5% */
+}
+
+/* * The following styles are for the container to maintain its aspect ratio,
+ * preventing layout shift when the image scales.
+ */
+.photo-container {
+  position: relative;
+  width: 256px; /* Example fixed width, adjust as needed */
+  height: 256px; /* Example fixed height, adjust as needed */
+  overflow: hidden;
+  border-radius: 9999px; /* Tailwind's rounded-full */
+}
+
+/* Ensure the image fills its container */
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

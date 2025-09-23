@@ -1,6 +1,7 @@
 // src/pages/Home.jsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Home.css';
 
 const Home = () => {
     const [particles, setParticles] = useState([]);
@@ -22,7 +23,7 @@ const Home = () => {
           setLeaves(prev => [...prev, newLeaf]);
         };
     
-        const leafInterval = setInterval(createLeaf, 800);
+        const leafInterval = setInterval(createLeaf, 350);
     
         const animateLeaves = () => {
           setLeaves(prev => prev
@@ -176,60 +177,57 @@ const Home = () => {
           />
         ))}
   
-        <div className="relative z-30 flex flex-col items-center justify-center min-h-screen text-center px-4 pt-20">
-          <h1 className="text-6xl md:text-7xl font-bold mb-4 text-green-600 animate-fade-in-up">
-            {MyName}
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-silver animate-fade-in-up-delay-1">
-            Where creativity meets technology.
-          </h2>
-          <p className="max-w-xl mx-auto mb-12 text-lg text-silver/80 animate-fade-in-up-delay-2">
-            On a journey to become a skilled developer, combining academic learning and practical training.
-          </p>
-          
-          <div className="relative">
-            <div 
-              className="absolute light-shine pointer-events-none rounded-full"
-              style={{
-                width: 'calc(100% + 30px)',
-                height: 'calc(100% + 30px)',
-                top: '-15px',
-                left: '-15px',
-                background: 'radial-gradient(circle, rgba(0, 255, 0, 0.25) 0%, rgba(0, 255, 0, 0.12) 40%, rgba(255, 255, 255, 0.06) 60%, transparent 80%)',
-                filter: 'blur(3px)',
-                zIndex: -1,
-              }}
-              
-            />
-            
-            <div 
-              className="absolute light-glow pointer-events-none rounded-full"
-              style={{
-                width: 'calc(100% + 60px)',
-                height: 'calc(100% + 60px)',
-                top: '-30px',
-                left: '-30px',
-                background: 'radial-gradient(circle, rgba(0, 255, 0, 0.08) 0%, transparent 70%)',
-                filter: 'blur(8px)',
-                zIndex: -2,
-              }}
-            />
-            
-            
-            <Link
-            to="/projects" // Changed from href="#projects"
-            className="bg-green-600/30 border border-green-600 text-green-400 font-bold py-3 px-8 rounded-full animate-fade-in-up-delay-3 relative z-10"
+        {/* Main Content */}
+      <div className="relative z-30 flex flex-col items-center justify-center min-h-screen text-center px-4 pt-20">
+        <h1 className="text-6xl md:text-7xl font-bold mb-4 text-green-600 animate-fade-in-up">
+          {MyName}
+        </h1>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-silver animate-fade-in-up-delay-1">
+          Where creativity meets technology.
+        </h2>
+        <p className="max-w-xl mx-auto mb-12 text-lg text-silver/80 animate-fade-in-up-delay-2">
+          On a journey to become a skilled developer, combining academic learning and practical training.
+        </p>
+
+        {/* View My Work Button with Correct Fade-in */}
+        <div className="relative animate-fade-in-up-delay-3">
+          <div 
+            className="absolute light-shine pointer-events-none rounded-full"
+            style={{
+              width: 'calc(100% + 30px)',
+              height: 'calc(100% + 30px)',
+              top: '-15px',
+              left: '-15px',
+              background: 'radial-gradient(circle, rgba(0, 255, 0, 0.25) 0%, rgba(0, 255, 0, 0.12) 40%, rgba(255, 255, 255, 0.06) 60%, transparent 80%)',
+              filter: 'blur(3px)',
+              zIndex: -1,
+            }}
+          />
+          <div 
+            className="absolute light-glow pointer-events-none rounded-full"
+            style={{
+              width: 'calc(100% + 60px)',
+              height: 'calc(100% + 60px)',
+              top: '-30px',
+              left: '-30px',
+              background: 'radial-gradient(circle, rgba(0, 255, 0, 0.08) 0%, transparent 70%)',
+              filter: 'blur(8px)',
+              zIndex: -2,
+            }}
+          />
+          <Link
+            to="/projects"
+            className="bg-green-600/30 border border-green-600 text-green-400 font-bold py-3 px-8 rounded-full relative z-10"
             style={{
               boxShadow: '0 0 15px rgba(0, 255, 0, 0.3), 0 0 25px rgba(0, 255, 0, 0.2)',
             }}
           >
             View My Work
           </Link>
-
-          </div>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Home;
