@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext.jsx"; // ✅ Correct relative path
+import { BsSun, BsMoon } from "react-icons/bs";
+
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -46,11 +48,12 @@ const Navbar = () => {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="text-xl"
+            className="text-2xl"
             style={{ color: `var(--text-color)` }}
           >
-            {theme === "dark" ? "☀️" : "🌙"}
+            {theme === "dark" ? <BsSun /> : <BsMoon />}
           </button>
+
         </div>
       </div>
     </nav>
