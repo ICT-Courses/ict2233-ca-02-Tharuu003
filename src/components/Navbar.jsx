@@ -5,10 +5,10 @@ const Navbar=() =>{
   const myName = 'Tharushi Kodithuwakku';
 
   return(
-    <nav className="bg-black text-silver p-4 shadow-lg">
+    <nav className="fixed w-full top-0 bg-black text-silver p-4 shadow-lg z-10">
       <div className="container mx-auto flex justify-between items-center">
-        <a href="/" className="text-[30px] font-bold font-serif text-dark-green">
-        Tharushi Kodithuwakku</a>
+        <a href="/" className="text-2xl font-bold font-serif text-dark-green">
+        {myName}</a>
         <ul className="flex spece-x-4">
           <li>
             <a href="/about" className="text-silver hover:text-dark-green transition-colors duration-300">
