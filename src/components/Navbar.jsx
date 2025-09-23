@@ -1,29 +1,30 @@
-import React from "react";
+// src/components/Navbar.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-const Navbar=() =>{
+const Navbar = () => {
   const myName = 'Tharushi Kodithuwakku';
 
-  return(
-    <nav className="fixed w-full top-0 bg-black text-silver p-4 shadow-lg z-10">
+  return (
+    <nav className="fixed w-full top-0 bg-black text-silver p-4 shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <a href="/" className="text-2xl font-bold font-serif text-dark-green">
-        {myName}</a>
-        <ul className="flex spece-x-4">
+        <Link to="/" className="text-2xl font-bold font-serif text-green-600">
+          {}
+        </Link>
+        <ul className="flex space-x-6">
           <li>
-            <a href="/about" className="text-silver hover:text-dark-green transition-colors duration-300">
-            About</a>
+            <Link to="/" className="text-silver">Home</Link>
           </li>
           <li>
-            <a href="/projects" className="text-silver hover:text-dark-green transition-colors duration-300">
-            Projects</a>
+            <Link to="/about" className="text-silver">About</Link>
           </li>
           <li>
-            <a href="/contact" className="text-silver hover:text-dark-green transition-colors duration-300">
-            Contact</a>
+            <Link to="/projects" className="text-silver">Projects</Link>
+          </li>
+          <li>
+            <Link to="/contact" className="text-silver">Contact</Link>
           </li>
         </ul>
-
       </div>
     </nav>
   );
