@@ -1,12 +1,15 @@
 // src/pages/Home.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from "../context/ThemeContext.jsx"; // ✅ import theme
 import '../styles/Home.css';
 
 const Home = () => {
-    const [particles, setParticles] = useState([]);
-    const [leaves, setLeaves] = useState([]);
-  
+  const { theme } = useContext(ThemeContext); // ✅ use theme here
+  const [particles, setParticles] = useState([]);
+  const [leaves, setLeaves] = useState([]);
+  const myName = "Tharushi Kodithuwakku";
+
     useEffect(() => {
         // Create falling leaves
         const createLeaf = () => {
@@ -133,54 +136,58 @@ const Home = () => {
     const MyName = 'Tharushi Kodithuwakku';
   
     return (
-      <div className="relative min-h-screen bg-black overflow-hidden">
-        <div className="fixed inset-0 bg-gradient-radial from-green-900/20 via-transparent to-transparent animate-pulse-slow"></div>
-        {leaves.map((leaf) => (
-          <div
-            key={leaf.id}
-            className="absolute pointer-events-none z-10 transition-transform duration-100"
-            style={{
-              left: `${leaf.x}%`,
-              top: `${leaf.y - (leaf.jumpOffset || 0)}px`,
-              width: `${leaf.size}px`,
-              height: `${leaf.size}px`,
-              transform: `rotate(${leaf.rotation}deg) ${leaf.jumping ? 'scale(1.2)' : 'scale(1)'}`,
-              background: leaf.jumping 
-                ? 'rgba(0, 200, 0, 0.7)' 
-                : 'rgba(0, 150, 0, 0.4)',
-              borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-              opacity: leaf.jumping ? 1 : 0.7,
-              boxShadow: leaf.jumping ? '0 0 15px rgba(0, 255, 0, 0.5)' : 'none',
-            }}
-          />
-        ))}
-  
-        {particles.map((particle) => (
-          <div
-            key={particle.id}
-            className="absolute pointer-events-none z-20"
-            style={{
-              left: particle.x,
-              top: particle.y,
-              width: particle.size,
-              height: particle.size,
-              background: `radial-gradient(circle, 
-                rgba(255, 255, 255, ${particle.opacity * 0.9}) 0%, 
-                rgba(192, 192, 192, ${particle.opacity * 0.7}) 30%, 
-                rgba(160, 160, 160, ${particle.opacity * 0.4}) 70%, 
-                transparent 100%)`,
-              borderRadius: '50%',
-              filter: 'blur(0.5px)',
-              boxShadow: `0 0 ${particle.size * 2}px rgba(255, 255, 255, ${particle.opacity * 0.3})`,
-              transform: `scale(${1 + Math.sin(particle.life * 0.1) * 0.2})`,
-            }}
-          />
-        ))}
-  
-        {/* Main Content */}
+    <div className="relative min-h-screen bg-black overflow-hidden">
+      {/* gradient overlay */}
+      <div className="fixed inset-0 bg-gradient-radial from-green-900/20 via-transparent to-transparent animate-pulse-slow"></div>
+
+      {/* Leaves */}
+      {leaves.map((leaf) => (
+        <div
+          key={leaf.id}
+          className="absolute pointer-events-none z-10 transition-transform duration-100"
+          style={{
+            left: `${leaf.x}%`,
+            top: `${leaf.y - (leaf.jumpOffset || 0)}px`,
+            width: `${leaf.size}px`,
+            height: `${leaf.size}px`,
+            transform: `rotate(${leaf.rotation}deg) ${leaf.jumping ? 'scale(1.2)' : 'scale(1)'}`,
+            background: leaf.jumping
+              ? 'rgba(0, 200, 0, 0.7)'
+              : 'rgba(0, 150, 0, 0.4)',
+            borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+            opacity: leaf.jumping ? 1 : 0.7,
+            boxShadow: leaf.jumping ? '0 0 15px rgba(0, 255, 0, 0.5)' : 'none',
+          }}
+        />
+      ))}
+
+      {/* Dust particles */}
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="absolute pointer-events-none z-20"
+          style={{
+            left: particle.x,
+            top: particle.y,
+            width: particle.size,
+            height: particle.size,
+            background: `radial-gradient(circle, 
+              rgba(255, 255, 255, ${particle.opacity * 0.9}) 0%, 
+              rgba(192, 192, 192, ${particle.opacity * 0.7}) 30%, 
+              rgba(160, 160, 160, ${particle.opacity * 0.4}) 70%, 
+              transparent 100%)`,
+            borderRadius: '50%',
+            filter: 'blur(0.5px)',
+            boxShadow: `0 0 ${particle.size * 2}px rgba(255, 255, 255, ${particle.opacity * 0.3})`,
+            transform: `scale(${1 + Math.sin(particle.life * 0.1) * 0.2})`,
+          }}
+        />
+      ))}
+
+      {/* Main Content */}
       <div className="relative z-30 flex flex-col items-center justify-center min-h-screen text-center px-4 pt-20">
         <h1 className="text-6xl md:text-7xl font-bold mb-4 text-green-600 animate-fade-in-up">
-          {MyName}
+          {myName}
         </h1>
         <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-silver animate-fade-in-up-delay-1">
           Where creativity meets technology.
@@ -189,37 +196,39 @@ const Home = () => {
           On a journey to become a skilled developer, combining academic learning and practical training.
         </p>
 
-        {/* View My Work Button with Correct Fade-in */}
+        {/* View My Work Button */}
         <div className="relative animate-fade-in-up-delay-3">
-          <div 
+          <div
             className="absolute light-shine pointer-events-none rounded-full"
             style={{
               width: 'calc(100% + 30px)',
               height: 'calc(100% + 30px)',
               top: '-15px',
               left: '-15px',
-              background: 'radial-gradient(circle, rgba(0, 255, 0, 0.25) 0%, rgba(0, 255, 0, 0.12) 40%, rgba(255, 255, 255, 0.06) 60%, transparent 80%)',
+              background:
+                'radial-gradient(circle, rgba(0, 255, 0, 0.25) 0%, rgba(0, 255, 0, 0.12) 40%, rgba(255, 255, 255, 0.06) 60%, transparent 80%)',
               filter: 'blur(3px)',
               zIndex: -1,
             }}
           />
-          <div 
+          <div
             className="absolute light-glow pointer-events-none rounded-full"
             style={{
               width: 'calc(100% + 60px)',
               height: 'calc(100% + 60px)',
               top: '-30px',
               left: '-30px',
-              background: 'radial-gradient(circle, rgba(0, 255, 0, 0.08) 0%, transparent 70%)',
+              background:
+                'radial-gradient(circle, rgba(0, 255, 0, 0.08) 0%, transparent 70%)',
               filter: 'blur(8px)',
               zIndex: -2,
             }}
           />
           <Link
             to="/projects"
-            className="bg-green-600/30 border border-green-600 text-green-400 font-bold py-3 px-8 rounded-full relative z-10"
+            className="btn-view-work"
             style={{
-              boxShadow: '0 0 15px rgba(0, 255, 0, 0.3), 0 0 25px rgba(0, 255, 0, 0.2)',
+              color: theme === "light" ? "#000" : "#fff", // ✅ text changes with theme
             }}
           >
             View My Work

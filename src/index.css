@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+/* Base variables for dark mode (default) */
+body.dark {
+  --background-color: #000;
+  --text-color: #c0c0c0;
+  --primary-color: #059669; /* Dark green for accents */
+  --secondary-color: #1a1a1a; /* For cards, etc. */
+}
+
+/* Variables for light mode */
+body.light {
+  --background-color: #fff;
+  --text-color: #1a1a1a;
+  --primary-color: #059669;
+  --secondary-color: #f0f0f0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease; /* Smooth transition */
+}
+
+/* Update your components to use CSS variables */
+.bg-black {
+  background-color: var(--background-color) !important;
+}
+
+.text-silver {
+  color: var(--text-color) !important;
+}
+
+.text-green-600 {
+  color: var(--primary-color) !important;
+}
+
+* {
+  font-family: 'Times New Roman', Times, serif;
+}
+
