@@ -1,7 +1,7 @@
 // src/pages/About.jsx
 import React from 'react';
 import myPhoto from '../assets/myPhoto.jpg';
-import '../styles/About.css';
+import '../styles/About.css'; 
 
 const About = () => {
   return (

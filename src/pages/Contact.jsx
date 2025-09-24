@@ -1,9 +1,9 @@
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 
 const Contact = () => {
 
-    // validation logic සහ state hooks මෙහි එකතු කරන්න
+    // add the validation logic and state hooks 
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -38,9 +38,9 @@ const Contact = () => {
         e.preventDefault();
         if (validateForm()) {
             console.log("Form data submitted successfully:", formData);
-            // මෙතනින් backend service එකක් හරහා email එක යැවිය හැක
+            
             setIsSubmitted(true);
-            setFormData({ name: '', email: '', message: '' }); // Form එක reset කරන්න
+            setFormData({ name: '', email: '', message: '' }); // Reset the form
         }
     };
 

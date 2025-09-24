@@ -1,27 +1,26 @@
-// src/context/ThemeContext.js
 import React, { createContext, useState, useEffect } from 'react';
 
-// Create the context with a default value
-export const ThemeContext = createContext();
+export const ThemeContext = createContext(); 
 
 export const ThemeProvider = ({ children }) => {
-  // Get the theme from local storage or default to 'dark'
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  // The website's theme is either retrieved from local storage or set to 'dark'.
+  const [siteMode, setSideMode] = useState(localStorage.getItem('siteMode') || 'dark');
 
-  // Use useEffect to apply the theme class to the body element
-  useEffect(() => {
-    document.body.className = ''; // Reset class
-    document.body.classList.add(theme);
-    localStorage.setItem('theme', theme); // Save the theme to local storage
-  }, [theme]);
+  
+  useEffect(() => { // Use useEffect to apply the theme 
+        // Reset class
+    document.body.className = ''; 
+    document.body.classList.add(siteMode);
+    localStorage.setItem('siteMode', siteMode); // Save the theme to local storage
+  }, [siteMode]);
 
-  // Function to toggle between 'dark' and 'light'
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+  // The function that always troggling between light and dark.
+  const changeMode = () => {
+    setSideMode(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+  return ( //Receiving state and functionthrough the context provider
+    <ThemeContext.Provider value={{ siteMode, changeMode }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,16 +1,16 @@
 // src/pages/Home.jsx
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from "../context/ThemeContext.jsx"; // ✅ import theme
+import { ThemeContext } from "../context/ThemeContext.jsx"; 
 import '../styles/Home.css';
 import myPhoto from '../assets/myPhoto.jpg';
 
 
 const Home = () => {
-  const { theme } = useContext(ThemeContext); // ✅ use theme here
+  const { siteMode } = useContext(ThemeContext); 
   const [particles, setParticles] = useState([]);
   const [leaves, setLeaves] = useState([]);
-  const myName = "Tharushi Kodithuwakku";
+  const nameAuthor = "Tharushi Kodithuwakku";
 
     useEffect(() => {
         // Create falling leaves
@@ -188,8 +188,22 @@ const Home = () => {
 
       {/* Main Content */}
       <div className="relative z-30 flex flex-col items-center justify-center min-h-screen text-center px-4 pt-20">
+        <div className="mt-12 w-64 h-64 mx-auto overflow-hidden rounded-full shadow-xl relative animate-fade-in-up-delay-4 backdrop-filter backdrop-blur-md">
+          <div className="absolute inset-0 border-4 border-transparent rounded-full"
+              style={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  boxShadow: 'inset 0 0 10px rgba(255, 255, 255, 0.25)',
+              }}>
+          </div>
+          <img
+              src={myPhoto}
+              alt="Tharushi Kodithuwakku"
+              className="w-full h-full object-cover"
+          />
+      </div>
+      
         <h1 className="text-6xl md:text-7xl font-bold mb-4 text-green-600 animate-fade-in-up">
-          {myName}
+          {nameAuthor}
         </h1>
         <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-silver animate-fade-in-up-delay-1">
           Where creativity meets technology.
@@ -230,7 +244,7 @@ const Home = () => {
             to="/projects"
             className="btn-view-work"
             style={{
-              color: theme === "light" ? "#000" : "#fff", // ✅ text changes with theme
+              color: siteMode === "light" ? "#000" : "#fff", // ✅ text changes with theme
             }}
           >
             View My Work
@@ -238,19 +252,7 @@ const Home = () => {
           
         </div>
 
-        <div className="mt-12 w-64 h-64 mx-auto overflow-hidden rounded-full shadow-xl relative animate-fade-in-up-delay-4 backdrop-filter backdrop-blur-md">
-          <div className="absolute inset-0 border-4 border-transparent rounded-full"
-              style={{
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  boxShadow: 'inset 0 0 10px rgba(255, 255, 255, 0.25)',
-              }}>
-          </div>
-          <img
-              src={myPhoto}
-              alt="Tharushi Kodithuwakku"
-              className="w-full h-full object-cover"
-          />
-      </div>
+        
 
       </div>
     </div>

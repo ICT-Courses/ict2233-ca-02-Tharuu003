@@ -7,7 +7,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
-import { ThemeProvider } from './context/ThemeContext.jsx';
+import { ThemeProvider } from './context/ThemeContext.jsx'; 
 
 function App() {
   return (

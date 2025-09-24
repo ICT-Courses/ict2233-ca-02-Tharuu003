@@ -1,6 +1,7 @@
-// src/pages/Projects.jsx
 import React, { useState, useEffect } from 'react';
 import demoVideo from '../assets/CA1_WEB_DEMO.mp4';
+import demoVideo2 from '../assets/Demo.mp4';
+
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
@@ -51,21 +52,44 @@ const Projects = () => {
 
                 {/* My Projects - Demo Videos */}
                 <h2 className="text-4xl font-bold text-center mb-10 text-green-600">My Projects - Demo Videos</h2>
-                <div className="flex flex-col items-center mb-20">
+                <div className="flex flex-wrap justify-center gap-8 mb-20">
                     {/* CA1_WEB_DEMO.mp4 Video */}
-                    <video controls className="w-full max-w-2xl rounded-lg border border-green-600 shadow-xl mb-6">
-                        <source src={demoVideo} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+                    <div className="w-full sm:w-1/2 lg:w-1/3">
+                        <video controls className="w-full rounded-lg border border-green-600 shadow-xl mb-3">
+                            <source src={demoVideo} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <p className="text-center text-sm text-gray-400">
+                            This is a frontend developed web page created for an assignment in our 2nd year 2nd semester. This is designed to manage the work of an educational institution. It has been developed in a way that students can access this web page to select a suitable class for themselves and to know more about the teachers and the institution.
+                        </p>
+                    </div>
+                    
+                    {/* Demo.mp4 Video */}
+                    <div className="w-full sm:w-1/2 lg:w-1/3">
+                        <video controls className="w-full rounded-lg border border-green-600 shadow-xl mb-3">
+                            <source src={demoVideo2} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <p className="text-center text-sm text-gray-400">
+                            This video demonstrates the SilkShield invoice management system, showcasing automated invoice generation and PDF export features.
+                        </p>
+                    </div>
                 </div>
                 
                 {/* My Projects - Demo Videos - YouTube */}
                 <h2 className="text-4xl font-bold text-center mb-10 text-green-600">My Projects - Demo Videos - YouTube</h2>
                 <div className="flex flex-col items-center">
+                    <p className="text-center text-sm text-gray-400">
+                        This project is designed to make the work of salon staff easier. Separate features have been created for 4 stakeholders.
+                    </p>
                     <a href="https://youtu.be/M3fh2r3rvtU?si=gukFOY64qHuIy2Eo" target="_blank" rel="noopener noreferrer" 
                        className="text-blue-500 underline text-xl hover:text-blue-400 transition-colors">
                         Click here to watch on YouTube
                     </a>
+                    
+                    <p className="text-center text-sm text-gray-400">
+                        This is a 2D game I created during a course I took at the Java Institute.
+                    </p>
                     <a href="https://youtu.be/qeiYIpsv600?si=4BIWXVW0WOgoTRA_" target="_blank" rel="noopener noreferrer" 
                        className="text-blue-500 underline text-xl hover:text-blue-400 transition-colors">
                         Click here to watch on YouTube

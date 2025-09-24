@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../context/ThemeContext.jsx"; // ✅ Correct relative path
+import { ThemeContext } from "../context/ThemeContext.jsx"; //toggleTheme
 import { BsSun, BsMoon } from "react-icons/bs";
 
 
-const Navbar = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const MyName = "Tharushi Kodithuwakku";
+const navigationBar = () => {
+  const { siteMode, changeMode } = useContext(ThemeContext);
+  const nameAuthor = "Tharushi Kodithuwakku";
 
   return (
     <nav
@@ -19,39 +19,39 @@ const Navbar = () => {
           className="text-2xl font-bold font-serif"
           style={{ color: `var(--primary-color)` }}
         >
-          {MyName}
+          {nameAuthor}
         </Link>
         <div className="flex items-center space-x-6">
           <ul className="flex space-x-6">
             <li>
-              <Link to="/" style={{ color: `var(--text-color)` }}>
+              <Link to="/" style={{ color: `var(--text-color)` }}> {/* Link to the "Home" page */}
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about" style={{ color: `var(--text-color)` }}>
+              <Link to="/about" style={{ color: `var(--text-color)` }}> {/* Link to the "About" page */}
                 About
               </Link>
             </li>
             <li>
-              <Link to="/projects" style={{ color: `var(--text-color)` }}>
+              <Link to="/projects" style={{ color: `var(--text-color)` }}> {/* Link to the "Project" page */}
                 Projects
               </Link>
             </li>
             <li>
-              <Link to="/contact" style={{ color: `var(--text-color)` }}>
+              <Link to="/contact" style={{ color: `var(--text-color)` }}> {/* Link to the "Contact" page */}
                 Contact
               </Link>
             </li>
           </ul>
 
-          {/* Theme Toggle Button */}
+          {/*Toggle Button - Button for switching between Dark/Light mode */}
           <button
-            onClick={toggleTheme}
+            onClick={changeMode}
             className="text-2xl"
             style={{ color: `var(--text-color)` }}
           >
-            {theme === "dark" ? <BsSun /> : <BsMoon />}
+            {siteMode === "dark" ? <BsSun /> : <BsMoon />}
           </button>
 
         </div>
@@ -60,4 +60,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default navigationBar;
