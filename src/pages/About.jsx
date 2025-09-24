@@ -29,11 +29,12 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="md:w-1/3"> {/* This is the profile photo */}
+                    <div className="md:w-1/3 flex justify-center relative"> 
                         <img 
                             src={myPhoto}
                             alt="Tharushi Kodithuwakku" 
-                            className="rounded-full shadow-lg border-4 border-green-600 w-56 h-56 md:w-80 md:h-80 object-cover photo-glow photo-zoom" 
+                            // rounded-full ඉවත් කර, h-auto සහ w-full යොදා හතරැස් හැඩය පවත්වා ගැනීමට
+                            className="w-56 h-auto md:w-80 md:h-auto object-cover glass-effect photo-glow photo-zoom" 
                         />
                     </div>
 
