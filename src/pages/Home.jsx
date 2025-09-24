@@ -3,6 +3,8 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from "../context/ThemeContext.jsx"; // ✅ import theme
 import '../styles/Home.css';
+import myPhoto from '../assets/myPhoto.jpg';
+
 
 const Home = () => {
   const { theme } = useContext(ThemeContext); // ✅ use theme here
@@ -233,7 +235,23 @@ const Home = () => {
           >
             View My Work
           </Link>
+          
         </div>
+
+        <div className="mt-12 w-64 h-64 mx-auto overflow-hidden rounded-full shadow-xl relative animate-fade-in-up-delay-4 backdrop-filter backdrop-blur-md">
+          <div className="absolute inset-0 border-4 border-transparent rounded-full"
+              style={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  boxShadow: 'inset 0 0 10px rgba(255, 255, 255, 0.25)',
+              }}>
+          </div>
+          <img
+              src={myPhoto}
+              alt="Tharushi Kodithuwakku"
+              className="w-full h-full object-cover"
+          />
+      </div>
+
       </div>
     </div>
   );

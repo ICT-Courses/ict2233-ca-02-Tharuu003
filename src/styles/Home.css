@@ -68,6 +68,10 @@
   animation: lightning-flash 3s ease-in-out infinite;
 }
 
+.animate-fade-in-up-delay-4 {
+ animation: fade-in-up 0.8s ease-out 1.3s both;
+}
+
 /* General styling */
 .hero-section {
   position: relative;
