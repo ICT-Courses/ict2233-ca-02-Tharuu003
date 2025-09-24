@@ -21,7 +21,48 @@ This portfolio website showcases my skills and projects, reflecting my journey a
 - *State Management*: React Context API
 - *APIs*: GitHub API
 
+## Getting Started
+To get a local copy of this project up and running, follow these steps.
 
+### Prerequisites
+- Node.js installed on your machine
+- npm (Node Package Manager)
+
+### Installation
+1.  Clone the repository:
+    bash
+    git clone [https://github.com/your-Tharuu003/ict2233-ca-02-Tharuu003]
+    
+2.  Navigate to the project directory:
+    bash
+    cd your-portfolio-repo
+    
+3.  Install dependencies:
+    bash
+    npm install
+    
+4.  Start the development server:
+    bash
+    npm run dev
+    
+
+## Project Structure
+- src/
+    - assets/ (Images, videos, etc.)
+    - components/ (Reusable components like Navbar, Footer)
+    - context/ (ThemeContext)
+    - pages/ (Home, About, Projects, Contact, NotFound)
+    - styles/ (Custom CSS files)
+- App.jsx
+- main.jsx
+- index.html
+
+## License
+Distributed under the MIT License. See LICENSE for more information.
+
+## Contact
+
+Project Link: [https://ict-courses.github.io/ict2233-ca-02-Tharuu003/]
 
 # React + Vite
 
