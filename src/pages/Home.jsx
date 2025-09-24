@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from "../context/ThemeContext.jsx"; 
 import '../styles/Home.css';
 import myPhoto from '../assets/myPhoto.jpg';
-
+// The components and styles required for the home page are imported here
 
 const Home = () => {
   const { siteMode } = useContext(ThemeContext); 
-  const [particles, setParticles] = useState([]);
+  const [particles, setParticles] = useState([]); // The state for falling leaves and particle animations
   const [leaves, setLeaves] = useState([]);
   const nameAuthor = "Tharushi Kodithuwakku";
 
-    useEffect(() => {
+    useEffect(() => { // Implimenting the animation logic here
         // Create falling leaves
         const createLeaf = () => {
           const newLeaf = {
@@ -137,12 +137,14 @@ const Home = () => {
   
     const MyName = 'Tharushi Kodithuwakku';
   
+    // Rendering the HTML and JSX code 
     return (
+      // main container of the home page
     <div className="relative min-h-screen bg-black overflow-hidden">
       {/* gradient overlay */}
       <div className="fixed inset-0 bg-gradient-radial from-green-900/20 via-transparent to-transparent animate-pulse-slow"></div>
 
-      {/* Leaves */}
+      {/* Leaves, falling */}
       {leaves.map((leaf) => (
         <div
           key={leaf.id}
@@ -201,7 +203,7 @@ const Home = () => {
               className="w-full h-full object-cover"
           />
       </div>
-      
+
         <h1 className="text-6xl md:text-7xl font-bold mb-4 text-green-600 animate-fade-in-up">
           {nameAuthor}
         </h1>

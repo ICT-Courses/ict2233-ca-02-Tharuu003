@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import demoVideo from '../assets/CA1_WEB_DEMO.mp4';
 import demoVideo2 from '../assets/Demo.mp4';
+//The components and files required for the Projects page have been imported here.
 
-
-const Projects = () => {
+const Projects = () => { // biginning of the Projects component 
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     const GITHUB_USERNAME = 'Tharuu003';
 
-    useEffect(() => {
+    useEffect(() => { // Fetching the public projects from the GitHub API 
         const fetchProjects = async () => {
             try {
                 const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`);
@@ -29,11 +29,12 @@ const Projects = () => {
         fetchProjects();
     }, []);
 
-    if (loading) return <div className="text-center py-20">Loading...</div>;
+    if (loading) return <div className="text-center py-20">Loading...</div>;   // Showing Loading and error status.
     if (error) return <div className="text-center py-20 text-red-500">Error: {error}</div>;
 
     return (
-        <section id="projects" className="py-20 px-4 min-h-screen">
+        //main part
+        <section id="projects" className="py-20 px-4 min-h-screen"> 
             <div className="container mx-auto">
                 
                 {/* My Projects - GitHub */}

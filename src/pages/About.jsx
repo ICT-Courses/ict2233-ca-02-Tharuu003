@@ -1,4 +1,3 @@
-// src/pages/About.jsx
 import React from 'react';
 import myPhoto from '../assets/myPhoto.jpg';
 import '../styles/About.css'; 
@@ -9,9 +8,9 @@ const About = () => {
             <div className="container mx-auto max-w-4xl">
                 <h2 className="text-4xl font-bold text-center mb-10 text-green-600">About Me</h2>
                 
-                {/* About Content - Flexbox Layout */}
+                {/* Flexbox Layout - About Content*/}
                 <div className="flex flex-col md:flex-row items-center justify-between">
-                    {/* Paragraph Section - The gray box and padding are removed */}
+                    {/* About me */}
                     <div className="md:w-1/2 mb-8 md:mb-0">
                         <p className="text-lg leading-relaxed mb-4 text-justify">
                             I am a highly motivated and versatile undergraduate student at the University of Sri Jayewardenepura, currently pursuing a B.Sc. Hons. in ICT. My academic journey has ignited a passion for various facets of the technology field, including UI/UX design, Project Management, and Full-stack Software Engineering.
@@ -30,7 +29,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="md:w-1/3">
+                    <div className="md:w-1/3"> {/* This is the profile photo */}
                         <img 
                             src={myPhoto}
                             alt="Tharushi Kodithuwakku" 
@@ -43,7 +42,7 @@ const About = () => {
                 {/* Skills Section - CSS Grid Layout */}
                 <h2 className="text-4xl font-bold text-center mb-10 text-green-600 dark:text-green-400 mt-20">My Skills</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-2xl">
-                    {/* Technical Skills Box */}
+                    {/* The section that demonstrates technical skills */}
                     <div className="bg-gray-200 p-6 rounded-lg shadow-lg dark:bg-gray-800">
                         <h3 className="text-xl font-semibold text-green-500 dark:text-green-400 mb-2">Technical Skills</h3>
                         <ul className="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">
@@ -55,7 +54,7 @@ const About = () => {
                             <li>Git & GitHub</li>
                         </ul>
                     </div>
-                    {/* Soft Skills Box */}
+                    {/* The section that demonstrates soft skills */}
                     <div className="bg-gray-200 p-6 rounded-lg shadow-lg dark:bg-gray-800">
                         <h3 className="text-xl font-semibold text-green-500 dark:text-green-400 mb-2">Soft Skills</h3>
                         <ul className="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">

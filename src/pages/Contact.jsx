@@ -1,43 +1,44 @@
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import React, { useState } from 'react'; 
+//The things needed to send a message are imported here.
 
-const Contact = () => {
-
-    // add the validation logic and state hooks 
-    const [formData, setFormData] = useState({
+const contact = () => {
+    // The messaging section is set up here.
+    // Add the validation logic and state hooks here. 
+    const [contactData, setFormData] = useState({ // Where to store the message data
         name: '',
         email: '',
         message: ''
     });
-    const [errors, setErrors] = useState({});
+    const [contactErrors, setErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const validateForm = () => {
+    const validateForm = () => {  // Checking if the data in the form is correct
         let formErrors = {};
-        if (!formData.name) {
+        if (!contactData.name) {
             formErrors.name = "Name is required";
         }
-        if (!formData.email) {
+        if (!contactData.email) {
             formErrors.email = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+        } else if (!/\S+@\S+\.\S+/.test(contactData.email)) {
             formErrors.email = "Email address is invalid";
         }
-        if (!formData.message) {
+        if (!contactData.message) {
             formErrors.message = "Message is required";
         }
         setErrors(formErrors);
         return Object.keys(formErrors).length === 0;
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { // Update the form when the data changes
         const { name, value } = e.target;
         setFormData(prevData => ({ ...prevData, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => {  // The function that runs when the form is submitted
         e.preventDefault();
         if (validateForm()) {
-            console.log("Form data submitted successfully:", formData);
+            console.log("Form data submitted successfully:", contactData);
             
             setIsSubmitted(true);
             setFormData({ name: '', email: '', message: '' }); // Reset the form
@@ -49,7 +50,8 @@ const Contact = () => {
             <div className="container mx-auto text-center">
                 <h2 className="text-4xl font-bold mb-10 text-green-600">Get In Touch</h2>
                 
-                <div className="bg-white p-8 rounded-lg shadow-lg dark:bg-gray-800 mb-8 max-w-lg mx-auto">
+                 {/* This is the form that sends the message. */}
+                <div className="bg-white p-8 rounded-lg shadow-lg dark:bg-gray-800 mb-8 max-w-lg mx-auto"> 
                     {isSubmitted ? (
                         <div className="text-center text-green-500 font-semibold">
                             <p>Thank you for your message! I will get back to you shortly.</p>
@@ -62,11 +64,11 @@ const Contact = () => {
                                     type="text"
                                     id="name"
                                     name="name"
-                                    value={formData.name}
+                                    value={contactData.name}
                                     onChange={handleChange}
                                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm dark:bg-gray-700 dark:text-white"
                                 />
-                                {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
+                                {contactErrors.name && <p className="mt-1 text-sm text-red-500">{contactErrors.name}</p>}
                             </div>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
@@ -74,11 +76,11 @@ const Contact = () => {
                                     type="email"
                                     id="email"
                                     name="email"
-                                    value={formData.email}
+                                    value={contactData.email}
                                     onChange={handleChange}
                                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm dark:bg-gray-700 dark:text-white"
                                 />
-                                {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+                                {contactErrors.email && <p className="mt-1 text-sm text-red-500">{contactErrors.email}</p>}
                             </div>
                             <div>
                                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
@@ -86,11 +88,11 @@ const Contact = () => {
                                     id="message"
                                     name="message"
                                     rows="4"
-                                    value={formData.message}
+                                    value={contactData.message}
                                     onChange={handleChange}
                                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm dark:bg-gray-700 dark:text-white"
                                 ></textarea>
-                                {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
+                                {contactErrors.message && <p className="mt-1 text-sm text-red-500">{contactErrors.message}</p>}
                             </div>
                             <div>
                                 <button
@@ -127,4 +129,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default contact;
